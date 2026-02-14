@@ -58,17 +58,22 @@ window.onload = () => {
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Esto hace que el movimiento se sienta suave
 
-    function animate() {
-        requestAnimationFrame(animate);
-        // La escena gira lento
-        scene.rotation.y += 0.002;
-        // Las fotos giran sobre sí mismas
-        fotos.forEach(f => { f.rotation.y += 0.02; });
-        renderer.render(scene, camera);
-    }
-    animate();
-};
-    function reproducir() {
+function animate() {
+    requestAnimationFrame(animate);
+    scene.rotation.y += 0.002;
+    fotos.forEach(f => { f.rotation.y += 0.01; });
+    renderer.render(scene, camera);
+}
+
+// 1. Llama a la animación aquí
+animate();
+
+// 2. Cierra el window.onload AQUÍ
+}; 
+
+// 3. La función de música DEBE estar totalmente sola al final
+function reproducir() {
     const audio = new Audio('musica.mp3');
-    audio.play();
+    audio.play().catch(e => console.log("Error al reproducir:", e));
     audio.loop = true;
+}

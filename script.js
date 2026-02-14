@@ -67,6 +67,7 @@ controls.enableDamping = true; // Esto hace que el movimiento se sienta suave
         renderer.render(scene, camera);
     }
     animate();
+};
     function reproducir() {
     const audio = new Audio('musica.mp3');
     audio.play();

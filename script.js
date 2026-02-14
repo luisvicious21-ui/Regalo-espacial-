@@ -72,4 +72,3 @@ controls.enableDamping = true; // Esto hace que el movimiento se sienta suave
     audio.play();
     audio.loop = true;
 }
-};

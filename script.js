@@ -73,7 +73,17 @@ animate();
 
 // 3. La función de música DEBE estar totalmente sola al final
 function reproducir() {
-    const audio = new Audio('musica.mp3');
-    audio.play().catch(e => console.log("Error al reproducir:", e));
+    // Creamos el audio dentro de la función para que el celular lo acepte
+    const audio = new Audio('./musica.mp3');
     audio.loop = true;
+    
+    // Intentamos reproducir y avisamos si hay error
+    audio.play()
+        .then(() => console.log("¡Sonando!"))
+        .catch(err => {
+            console.log("Error:", err);
+            // Si falla, intentamos una segunda vez
+            audio.muted = false;
+            audio.play();
+        });
 }

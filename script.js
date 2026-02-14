@@ -68,7 +68,7 @@ controls.enableDamping = true; // Esto hace que el movimiento se sienta suave
     }
     animate();
     function reproducir() {
-    const audio = new Audio('TU_LINK_DE_MUSICA_AQUI.mp3');
+    const audio = new Audio('musica.mp3');
     audio.play();
     audio.loop = true;
 }
